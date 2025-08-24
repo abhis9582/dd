@@ -22372,7 +22372,7 @@ const ZN = () => {
                         "border-0 shadow-lg hover:shadow-2xl transition-shadow duration-300 flex-shrink-0 w-96 lg:w-[450px]",
                       children: c.jsxs(ur, {
                         className:
-                          "p-6 lg:p-8 min-h-[500px] lg:min-h-[550px] flex flex-col",
+                          "p-6 lg:p-8 flex flex-col",
                         children: [
                           c.jsxs("div", {
                             className: "flex items-center mb-6 lg:mb-8",
