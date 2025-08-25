@@ -18957,44 +18957,37 @@ const CE = () => {
     const e = [
         {
           name: "Earrings",
-          image:
-            "/women/earrings.jpg",
+          image: "/women/earrings.jpg",
           trend: "Elegant",
         },
         {
           name: "Necklace Set",
-          image:
-            "/women/necklace-set.jpg",
+          image: "/women/necklace-set.jpg",
           trend: "Traditional",
         },
         {
           name: "Pendants",
-          image:
-            "/women/pendants.jpg",
+          image: "/women/pendants.jpg",
           trend: "Sparkling",
         },
         {
           name: "Rings",
-          image:
-            "/women/rings.jpg",
+          image: "/women/rings.jpg",
           trend: "Festive",
         },
         {
           name: "Party & Wedding Collections",
-          image:
-            "/women/party-and-wedding-collection.jpg",
+          image: "/women/party-and-wedding-collection.jpg",
           trend: "Religious",
         },
         {
           name: "Bracelets & Bangles",
-          image:
-            "/women/bracelets-bangles.jpg",
+          image: "/women/bracelets-bangles.jpg",
           trend: "Bridal",
         },
         {
           name: "Anklets",
-          image:
-            "/women/anklet.jpg",
+          image: "/women/anklet.jpg",
           trend: "Vintage",
         },
         // {
@@ -19007,32 +19000,27 @@ const CE = () => {
       t = [
         {
           name: "Rings",
-          image:
-            "/men/ring.png",
+          image: "/men/ring.png",
           trend: "Traditional",
         },
         {
           name: "Chains & Pendants",
-          image:
-            "/men/Pendants.png",
+          image: "/men/Pendants.png",
           trend: "Modern",
         },
         {
           name: "Bracelets",
-          image:
-            "/men/Bracelets.png",
+          image: "/men/Bracelets.png",
           trend: "Statement",
         },
         {
           name: "Cuffs",
-          image:
-            "/men/Cufflinks.png",
+          image: "/men/Cufflinks.png",
           trend: "Spiritual",
         },
         {
           name: "Earrings",
-          image:
-            "/men/earring.png",
+          image: "/men/earring.png",
           trend: "Sacred",
         },
       ],
@@ -19076,7 +19064,7 @@ const CE = () => {
         });
     return c.jsx("section", {
       id: "collections",
-      className: "py-20 bg-gray-50",
+      className: "py-12 bg-gray-50",
       children: c.jsxs("div", {
         className: "container mx-auto px-4",
         children: [
@@ -19181,7 +19169,7 @@ const CE = () => {
     ];
     return c.jsx("section", {
       id: "about",
-      className: "py-12 lg:py-20 bg-gradient-to-br from-gray-50 to-white",
+      className: "py-12 lg:py-12 bg-gradient-to-br from-gray-50 to-white",
       children: c.jsxs("div", {
         className: "container mx-auto px-4",
         children: [
@@ -19384,7 +19372,7 @@ const CE = () => {
       },
     ];
     return c.jsx("section", {
-      className: "py-20 bg-white",
+      className: "py-12 bg-white",
       children: c.jsxs("div", {
         className: "container mx-auto px-4",
         children: [
@@ -21769,31 +21757,30 @@ const ZN = () => {
         debugger;
         console.log("Form submitted:", e);
         try {
-          const f = {
-            Full_Name: e.name,
-            Mobile_Number: e.mobile,
-            Email_Address: e.email || "Not provided",
-            City: e.city,
-            Business_Type: e.businessType,
-            Product_Interest: e.productInterest || "Not specified",
-            Estimated_Quantity: e.quantity || "Not specified",
-            Additional_Message: e.message || "No additional message",
-            Date_Submitted: new Date().toLocaleString("en-IN", {
+          try {
+            const date = new Date().toLocaleString("en-IN", {
               timeZone: "Asia/Kolkata",
               year: "numeric",
               month: "long",
               day: "numeric",
               hour: "2-digit",
               minute: "2-digit",
-            }),
-          };
-          try {
+            });
+            const formData = new FormData();
+            formData.append("Full_Name", e.name);
+            formData.append("Mobile_Number", e.mobile);
+            formData.append("Email_Address", e.email);
+            formData.append("City", e.city);
+            formData.append("Business_Type", e.businessType);
+            formData.append("Product_Interest", e.productInterest || "Not specified");
+            formData.append("Estimated_Quantity", e.quantity || "Not specified");
+            formData.append("Additional_Message", e.message || "No additional message");
+            formData.append("Date_Submitted", date);
             const p = await fetch(
-              "https://apiverse.somee.com/api/smtp/submit",
+              "https://script.google.com/macros/s/AKfycbxdLeFUvaG4F7FOKGY7RDxSoS20oGOnlpn_J6CnyPPbfS74uaI2iJadJ9jtbnGJ10zk/exec",
               {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(f),
+                body: formData,
               }
             );
             if (!p.ok) throw new Error("Request failed");
@@ -21855,7 +21842,7 @@ const ZN = () => {
       };
     return c.jsx("section", {
       id: "bulk-inquiry",
-      className: "py-20 bg-gradient-to-br from-yellow-50 to-orange-50",
+      className: "py-12 bg-gradient-to-br from-yellow-50 to-orange-50",
       children: c.jsxs("div", {
         className: "container mx-auto px-4",
         children: [
@@ -22336,7 +22323,7 @@ const ZN = () => {
         },
       ];
     return c.jsx("section", {
-      className: "py-12 lg:py-20 bg-gray-50",
+      className: "py-12 lg:py-12 bg-gray-50",
       children: c.jsxs("div", {
         className: "container mx-auto px-4",
         children: [
@@ -22371,8 +22358,7 @@ const ZN = () => {
                       className:
                         "border-0 shadow-lg hover:shadow-2xl transition-shadow duration-300 flex-shrink-0 w-96 lg:w-[450px]",
                       children: c.jsxs(ur, {
-                        className:
-                          "p-6 lg:p-8 flex flex-col",
+                        className: "p-6 lg:p-8 flex flex-col",
                         children: [
                           c.jsxs("div", {
                             className: "flex items-center mb-6 lg:mb-8",
